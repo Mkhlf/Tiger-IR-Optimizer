@@ -1,0 +1,11 @@
+#start_function
+void main():
+int-list: x,y,t1,t2, w
+float-list:
+    assign, x, 1
+    add, y, x, 1
+    mult, t1, x, y
+    mult, t2, t1, x
+    add, w, t2, 7
+    call, puti, y
+#end_function
