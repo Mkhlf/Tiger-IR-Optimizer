@@ -1,3 +1,1060 @@
+Function: quicksort
++=======================+
+0, 3, 8, 9, 14, 19, 20, 23, 28, 
++=======================+
+CFG for function quicksort
+Basic Block 0: 0 - 2
+    Successors: 
+        28 - 28
+        3 - 7
+    Predecessors: 
+Basic Block 1: 3 - 7
+    Successors: 
+        8 - 8
+    Predecessors: 
+Basic Block 2: 8 - 8
+    Successors: 
+        9 - 13
+    Predecessors: 
+        3 - 7
+        20 - 22
+Basic Block 3: 9 - 13
+    Successors: 
+        9 - 13
+        14 - 18
+    Predecessors: 
+        8 - 8
+        9 - 13
+Basic Block 4: 14 - 18
+    Successors: 
+        14 - 18
+        19 - 19
+    Predecessors: 
+        14 - 18
+Basic Block 5: 19 - 19
+    Successors: 
+        23 - 27
+        20 - 22
+    Predecessors: 
+Basic Block 6: 20 - 22
+    Successors: 
+        8 - 8
+    Predecessors: 
+Basic Block 7: 23 - 27
+    Successors: 
+        28 - 28
+    Predecessors: 
+        19 - 19
+Basic Block 8: 28 - 28
+    Successors: 
+    Predecessors: 
+        0 - 2
+        23 - 27
+===========================================
+Function: main
++=======================+
+0, 3, 5, 7, 11, 14, 16, 21, 22, 
++=======================+
+CFG for function main
+Basic Block 0: 0 - 2
+    Successors: 
+        22 - 22
+        3 - 4
+    Predecessors: 
+Basic Block 1: 3 - 4
+    Successors: 
+        5 - 6
+    Predecessors: 
+Basic Block 2: 5 - 6
+    Successors: 
+        11 - 13
+        7 - 10
+    Predecessors: 
+        3 - 4
+        7 - 10
+Basic Block 3: 7 - 10
+    Successors: 
+        5 - 6
+    Predecessors: 
+Basic Block 4: 11 - 13
+    Successors: 
+        14 - 15
+    Predecessors: 
+        5 - 6
+Basic Block 5: 14 - 15
+    Successors: 
+        21 - 21
+        16 - 20
+    Predecessors: 
+        11 - 13
+        16 - 20
+Basic Block 6: 16 - 20
+    Successors: 
+        14 - 15
+    Predecessors: 
+Basic Block 7: 21 - 21
+    Successors: 
+        22 - 22
+    Predecessors: 
+        14 - 15
+Basic Block 8: 22 - 22
+    Successors: 
+    Predecessors: 
+        0 - 2
+        21 - 21
+===========================================
+Current instruction: brgeq
+    2nd and 3rd onwards
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3af49f1c writes to lo
+Checking if i equals lo false
+Checking if assign with list[Lir.operand.IROperand;@3af49f1c writes to hi
+Checking if i equals hi false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to lo
+Checking if j equals lo false
+Checking if assign with list[Lir.operand.IROperand;@53d8d10a writes to hi
+Checking if j equals hi false
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to lo
+Checking if mid equals lo false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to hi
+Checking if mid equals hi false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to lo
+Checking if mid equals lo false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to hi
+Checking if mid equals hi false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4c873330 writes to lo
+Checking if pivot equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@4c873330 writes to hi
+Checking if pivot equals hi false
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@776ec8df writes to lo
+Checking if i equals lo false
+Checking if sub with list[Lir.operand.IROperand;@776ec8df writes to hi
+Checking if i equals hi false
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3b07d329 writes to lo
+Checking if j equals lo false
+Checking if add with list[Lir.operand.IROperand;@3b07d329 writes to hi
+Checking if j equals hi false
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@404b9385 writes to lo
+Checking if i equals lo false
+Checking if add with list[Lir.operand.IROperand;@404b9385 writes to hi
+Checking if i equals hi false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to lo
+Checking if x equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to hi
+Checking if x equals hi false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@214c265e writes to lo
+Checking if ti equals lo false
+Checking if assign with list[Lir.operand.IROperand;@214c265e writes to hi
+Checking if ti equals hi false
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@7cca494b writes to lo
+Checking if j equals lo false
+Checking if sub with list[Lir.operand.IROperand;@7cca494b writes to hi
+Checking if j equals hi false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to lo
+Checking if x equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to hi
+Checking if x equals hi false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@58372a00 writes to lo
+Checking if tj equals lo false
+Checking if assign with list[Lir.operand.IROperand;@58372a00 writes to hi
+Checking if tj equals hi false
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@6d03e736 writes to lo
+Checking if ti equals lo false
+Checking if array_store with list[Lir.operand.IROperand;@6d03e736 writes to hi
+Checking if ti equals hi false
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@378bf509 writes to lo
+Checking if tj equals lo false
+Checking if array_store with list[Lir.operand.IROperand;@378bf509 writes to hi
+Checking if tj equals hi false
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to lo
+Checking if j1 equals lo false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to hi
+Checking if j1 equals hi false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@7ef20235 writes to lo
+Checking if j equals lo false
+Checking if add with list[Lir.operand.IROperand;@7ef20235 writes to hi
+Checking if j equals hi false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: label
+Current instruction: label
+Current instruction: brlt
+    2nd and 3rd onwards
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3af49f1c writes to ti
+Checking if i equals ti false
+Checking if assign with list[Lir.operand.IROperand;@3af49f1c writes to pivot
+Checking if i equals pivot false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to ti
+Checking if j equals ti false
+Checking if assign with list[Lir.operand.IROperand;@53d8d10a writes to pivot
+Checking if j equals pivot false
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to ti
+Checking if mid equals ti false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to pivot
+Checking if mid equals pivot false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to ti
+Checking if mid equals ti false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to pivot
+Checking if mid equals pivot false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4c873330 writes to ti
+Checking if pivot equals ti false
+Checking if array_load with list[Lir.operand.IROperand;@4c873330 writes to pivot
+Checking if pivot equals pivot true
+    This instruction was marked withpivot
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@776ec8df writes to ti
+Checking if i equals ti false
+Checking if sub with list[Lir.operand.IROperand;@776ec8df writes to pivot
+Checking if i equals pivot false
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3b07d329 writes to ti
+Checking if j equals ti false
+Checking if add with list[Lir.operand.IROperand;@3b07d329 writes to pivot
+Checking if j equals pivot false
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@404b9385 writes to ti
+Checking if i equals ti false
+Checking if add with list[Lir.operand.IROperand;@404b9385 writes to pivot
+Checking if i equals pivot false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to ti
+Checking if x equals ti false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to pivot
+Checking if x equals pivot false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@214c265e writes to ti
+Checking if ti equals ti true
+    This instruction was marked withti
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@7cca494b writes to ti
+Checking if j equals ti false
+Checking if sub with list[Lir.operand.IROperand;@7cca494b writes to pivot
+Checking if j equals pivot false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to ti
+Checking if x equals ti false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to pivot
+Checking if x equals pivot false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@58372a00 writes to ti
+Checking if tj equals ti false
+Checking if assign with list[Lir.operand.IROperand;@58372a00 writes to pivot
+Checking if tj equals pivot false
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@6d03e736 writes to ti
+Checking if ti equals ti true
+    This instruction was marked withti
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@378bf509 writes to ti
+Checking if tj equals ti false
+Checking if array_store with list[Lir.operand.IROperand;@378bf509 writes to pivot
+Checking if tj equals pivot false
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to ti
+Checking if j1 equals ti false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to pivot
+Checking if j1 equals pivot false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@7ef20235 writes to ti
+Checking if j equals ti false
+Checking if add with list[Lir.operand.IROperand;@7ef20235 writes to pivot
+Checking if j equals pivot false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: label
+Current instruction: brgt
+    2nd and 3rd onwards
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3af49f1c writes to tj
+Checking if i equals tj false
+Checking if assign with list[Lir.operand.IROperand;@3af49f1c writes to pivot
+Checking if i equals pivot false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to tj
+Checking if j equals tj false
+Checking if assign with list[Lir.operand.IROperand;@53d8d10a writes to pivot
+Checking if j equals pivot false
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to tj
+Checking if mid equals tj false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to pivot
+Checking if mid equals pivot false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to tj
+Checking if mid equals tj false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to pivot
+Checking if mid equals pivot false
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@776ec8df writes to tj
+Checking if i equals tj false
+Checking if sub with list[Lir.operand.IROperand;@776ec8df writes to pivot
+Checking if i equals pivot false
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3b07d329 writes to tj
+Checking if j equals tj false
+Checking if add with list[Lir.operand.IROperand;@3b07d329 writes to pivot
+Checking if j equals pivot false
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@404b9385 writes to tj
+Checking if i equals tj false
+Checking if add with list[Lir.operand.IROperand;@404b9385 writes to pivot
+Checking if i equals pivot false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to tj
+Checking if x equals tj false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to pivot
+Checking if x equals pivot false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@7cca494b writes to tj
+Checking if j equals tj false
+Checking if sub with list[Lir.operand.IROperand;@7cca494b writes to pivot
+Checking if j equals pivot false
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to tj
+Checking if x equals tj false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to pivot
+Checking if x equals pivot false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@58372a00 writes to tj
+Checking if tj equals tj true
+    This instruction was marked withtj
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@378bf509 writes to tj
+Checking if tj equals tj true
+    This instruction was marked withtj
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to tj
+Checking if j1 equals tj false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to pivot
+Checking if j1 equals pivot false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@7ef20235 writes to tj
+Checking if j equals tj false
+Checking if add with list[Lir.operand.IROperand;@7ef20235 writes to pivot
+Checking if j equals pivot false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: brgeq
+    2nd and 3rd onwards
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3af49f1c writes to i
+Checking if i equals i true
+    This instruction was marked withi
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to i
+Checking if j equals i false
+Checking if assign with list[Lir.operand.IROperand;@53d8d10a writes to j
+Checking if j equals j true
+    This instruction was marked withj
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to i
+Checking if mid equals i false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to j
+Checking if mid equals j false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to i
+Checking if mid equals i false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to j
+Checking if mid equals j false
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@776ec8df writes to i
+Checking if i equals i true
+    This instruction was marked withi
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3b07d329 writes to i
+Checking if j equals i false
+Checking if add with list[Lir.operand.IROperand;@3b07d329 writes to j
+Checking if j equals j true
+    This instruction was marked withj
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@404b9385 writes to i
+Checking if i equals i true
+    This instruction was marked withi
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to i
+Checking if x equals i false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to j
+Checking if x equals j false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@7cca494b writes to i
+Checking if j equals i false
+Checking if sub with list[Lir.operand.IROperand;@7cca494b writes to j
+Checking if j equals j true
+    This instruction was marked withj
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to i
+Checking if x equals i false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to j
+Checking if x equals j false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to i
+Checking if j1 equals i false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@7ef20235 writes to i
+Checking if j equals i false
+Checking if add with list[Lir.operand.IROperand;@7ef20235 writes to j
+Checking if j equals j true
+    This instruction was marked withj
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: goto
+Current instruction: label
+Current instruction: call
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to A
+Checking if mid equals A false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to lo
+Checking if mid equals lo false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to j
+Checking if mid equals j false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to A
+Checking if mid equals A false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to lo
+Checking if mid equals lo false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to j
+Checking if mid equals j false
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to A
+Checking if x equals A false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to lo
+Checking if x equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to j
+Checking if x equals j false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to A
+Checking if x equals A false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to lo
+Checking if x equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to j
+Checking if x equals j false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to A
+Checking if j1 equals A false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to lo
+Checking if j1 equals lo false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: call
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@65ab7765 writes to A
+Checking if mid equals A false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to j
+Checking if mid equals j false
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to hi
+Checking if mid equals hi false
+    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to A
+Checking if mid equals A false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to j
+Checking if mid equals j false
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to hi
+Checking if mid equals hi false
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to A
+Checking if x equals A false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to j
+Checking if x equals j false
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to hi
+Checking if x equals hi false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to A
+Checking if x equals A false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to j
+Checking if x equals j false
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to hi
+Checking if x equals hi false
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to A
+Checking if j1 equals A false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to hi
+Checking if j1 equals hi false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: label
+Current instruction: array_load
+    3rd only
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@65ab7765 writes to mid
+Checking if mid equals mid true
+    This instruction was marked withmid
+Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to mid
+Checking if mid equals mid true
+    This instruction was marked withmid
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to mid
+Checking if x equals mid false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to mid
+Checking if x equals mid false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to mid
+Checking if j1 equals mid false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: assign
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@682a0b20 writes to x
+Checking if x equals x true
+    This instruction was marked withx
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@3b9a45b3 writes to x
+Checking if x equals x true
+    This instruction was marked withx
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to x
+Checking if j1 equals x false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: array_store
+    1st and 3rd
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to ti
+Checking if j1 equals ti false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: assign
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to x
+Checking if j1 equals x false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: array_store
+    1st and 3rd
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to tj
+Checking if j1 equals tj false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to i
+Checking if j1 equals i false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: assign
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to 0
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: assign
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to 0
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: sub
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to lo
+Checking if j1 equals lo false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 1
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: add
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to hi
+Checking if j1 equals hi false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 1
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: add
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to i
+Checking if j1 equals i false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 1
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: sub
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 1
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: add
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 1
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: add
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to lo
+Checking if j1 equals lo false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to hi
+Checking if j1 equals hi false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: div
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: div    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brlt    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@2d98a335 writes to mid
+Checking if j1 equals mid false
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to 2
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: array_load
+    3rd only
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to i
+Checking if j1 equals i false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: array_load
+    3rd only
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Checking if add with list[Lir.operand.IROperand;@2d98a335 writes to j
+Checking if j1 equals j false
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
 Current instruction: callr
     3rd only
     This instruction already marked
@@ -12,974 +1069,445 @@ Current instruction: callr
     This instruction already marked
     This instruction already marked
     This instruction already marked
-Current instruction: brlt
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: brgt
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to x
-Checking if c equals x false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@27973e9b writes to n
+Checking if t equals n false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to 100
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to x
-Checking if err equals x false
-Checking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@31befd9f writes to x
-Checking if r equals x false
-Checking if assign with list[Lir.operand.IROperand;@31befd9f writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1c20c684 writes to x
-Checking if pr equals x false
-Checking if assign with list[Lir.operand.IROperand;@1c20c684 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to x
-Checking if r2 equals x false
-Checking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@548c4f57 writes to x
-Checking if t equals x false
-Checking if assign with list[Lir.operand.IROperand;@548c4f57 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to x
-Checking if t3 equals x false
-Checking if assign with list[Lir.operand.IROperand;@1218025c writes to 0.
-    Checking instruction: brlt    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@312b1dae writes to n
+Checking if n equals n true
+    This instruction was marked withn
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7530d0a writes to n
+Checking if i equals n false
+Checking if assign with list[Lir.operand.IROperand;@7530d0a writes to 100
     Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to x
-Checking if r2 equals x false
-Checking if mult with list[Lir.operand.IROperand;@816f27d writes to 0.
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to x
-Checking if t2 equals x false
-Checking if sub with list[Lir.operand.IROperand;@87aac27 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3e3abc88 writes to x
-Checking if t equals x false
-Checking if assign with list[Lir.operand.IROperand;@3e3abc88 writes to 0.
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to x
-Checking if t2 equals x false
-Checking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to x
-Checking if t equals x false
-Checking if assign with list[Lir.operand.IROperand;@53d8d10a writes to 0.
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to x
-Checking if pr equals x false
-Checking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to 0.
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to x
-Checking if t3 equals x false
-Checking if div with list[Lir.operand.IROperand;@65ab7765 writes to 0.
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to x
-Checking if t3 equals x false
-Checking if add with list[Lir.operand.IROperand;@1b28cdfa writes to 0.
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to x
-Checking if t3 equals x false
-Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7229724f writes to x
-Checking if r equals x false
-Checking if assign with list[Lir.operand.IROperand;@7229724f writes to 0.
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to x
-Checking if c equals x false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-    Checking instruction: breq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to n
+Checking if t equals n false
+Checking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to 100
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3941a79c writes to n
+Checking if i equals n false
+Checking if add with list[Lir.operand.IROperand;@3941a79c writes to 100
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@506e1b77 writes to n
+Checking if i equals n false
+Checking if assign with list[Lir.operand.IROperand;@506e1b77 writes to 100
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4fca772d writes to n
+Checking if t equals n false
+Checking if array_load with list[Lir.operand.IROperand;@4fca772d writes to 100
     Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@9807454 writes to n
+Checking if i equals n false
+Checking if add with list[Lir.operand.IROperand;@9807454 writes to 100
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
     Checking instruction: label    This instruction already marked
 Current instruction: label
-Current instruction: brgeq
+Current instruction: brgt
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t
-Checking if c equals t false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@27973e9b writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to n
+Checking if t equals n false
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to t
-Checking if err equals t false
-Checking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@31befd9f writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@31befd9f writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1c20c684 writes to t
-Checking if pr equals t false
-Checking if assign with list[Lir.operand.IROperand;@1c20c684 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to t
-Checking if r2 equals t false
-Checking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@548c4f57 writes to t
-Checking if t equals t true
-    This instruction was marked witht
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@1218025c writes to 0.
-    Checking instruction: brlt    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7530d0a writes to i
+Checking if i equals i true
+    This instruction was marked withi
     Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to t
-Checking if r2 equals t false
-Checking if mult with list[Lir.operand.IROperand;@816f27d writes to 0.
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to t
-Checking if t2 equals t false
-Checking if sub with list[Lir.operand.IROperand;@87aac27 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@3e3abc88 writes to t
-Checking if t equals t true
-    This instruction was marked witht
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to t
-Checking if t2 equals t false
-Checking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@53d8d10a writes to t
-Checking if t equals t true
-    This instruction was marked witht
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to t
-Checking if pr equals t false
-Checking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to 0.
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to t
-Checking if t3 equals t false
-Checking if div with list[Lir.operand.IROperand;@65ab7765 writes to 0.
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to t
-Checking if t3 equals t false
-Checking if add with list[Lir.operand.IROperand;@1b28cdfa writes to 0.
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to t
-Checking if t3 equals t false
-Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to 0.
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7229724f writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@7229724f writes to 0.
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t
-Checking if c equals t false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-    Checking instruction: breq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to i
+Checking if t equals i false
+Checking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to n
+Checking if t equals n false
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@3941a79c writes to i
+Checking if i equals i true
+    This instruction was marked withi
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@506e1b77 writes to i
+Checking if i equals i true
+    This instruction was marked withi
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4fca772d writes to i
+Checking if t equals i false
+Checking if array_load with list[Lir.operand.IROperand;@4fca772d writes to n
+Checking if t equals n false
     Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: label
-Current instruction: brleq
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t
-Checking if c equals t false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to err
-Checking if c equals err false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to t
-Checking if err equals t false
-Checking if assign with list[Lir.operand.IROperand;@2f2c9b19 writes to err
-Checking if err equals err true
-    This instruction was marked witherr
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@31befd9f writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@31befd9f writes to err
-Checking if r equals err false
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1c20c684 writes to t
-Checking if pr equals t false
-Checking if assign with list[Lir.operand.IROperand;@1c20c684 writes to err
-Checking if pr equals err false
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to t
-Checking if r2 equals t false
-Checking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to err
-Checking if r2 equals err false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@1218025c writes to err
-Checking if t3 equals err false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to t
-Checking if r2 equals t false
-Checking if mult with list[Lir.operand.IROperand;@816f27d writes to err
-Checking if r2 equals err false
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to t
-Checking if t2 equals t false
-Checking if sub with list[Lir.operand.IROperand;@87aac27 writes to err
-Checking if t2 equals err false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to t
-Checking if t2 equals t false
-Checking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to err
-Checking if t2 equals err false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to t
-Checking if pr equals t false
-Checking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to err
-Checking if pr equals err false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to t
-Checking if t3 equals t false
-Checking if div with list[Lir.operand.IROperand;@65ab7765 writes to err
-Checking if t3 equals err false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to t
-Checking if t3 equals t false
-Checking if add with list[Lir.operand.IROperand;@1b28cdfa writes to err
-Checking if t3 equals err false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to t
-Checking if t3 equals t false
-Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to err
-Checking if t3 equals err false
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7229724f writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@7229724f writes to err
-Checking if r equals err false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t
-Checking if c equals t false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to err
-Checking if c equals err false
-    Checking instruction: breq    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@9807454 writes to i
+Checking if i equals i true
+    This instruction was marked withi
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
     Checking instruction: label    This instruction already marked
-Current instruction: breq
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to pr
-Checking if c equals pr false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@31befd9f writes to pr
-Checking if r equals pr false
-Checking if assign with list[Lir.operand.IROperand;@31befd9f writes to r
-Checking if r equals r true
-    This instruction was marked withr
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1c20c684 writes to pr
-Checking if pr equals pr true
-    This instruction was marked withpr
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to pr
-Checking if r2 equals pr false
-Checking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to r
-Checking if r2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to pr
-Checking if t3 equals pr false
-Checking if assign with list[Lir.operand.IROperand;@1218025c writes to r
-Checking if t3 equals r false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to pr
-Checking if r2 equals pr false
-Checking if mult with list[Lir.operand.IROperand;@816f27d writes to r
-Checking if r2 equals r false
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to pr
-Checking if t2 equals pr false
-Checking if sub with list[Lir.operand.IROperand;@87aac27 writes to r
-Checking if t2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to pr
-Checking if t2 equals pr false
-Checking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to r
-Checking if t2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@e9e54c2 writes to pr
-Checking if pr equals pr true
-    This instruction was marked withpr
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to pr
-Checking if t3 equals pr false
-Checking if div with list[Lir.operand.IROperand;@65ab7765 writes to r
-Checking if t3 equals r false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to pr
-Checking if t3 equals pr false
-Checking if add with list[Lir.operand.IROperand;@1b28cdfa writes to r
-Checking if t3 equals r false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to pr
-Checking if t3 equals pr false
-Checking if div with list[Lir.operand.IROperand;@eed1f14 writes to r
-Checking if t3 equals r false
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@7229724f writes to pr
-Checking if r equals pr false
-Checking if assign with list[Lir.operand.IROperand;@7229724f writes to r
-Checking if r equals r true
-    This instruction was marked withr
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to pr
-Checking if c equals pr false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
+Current instruction: callr
+    3rd only
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
 Current instruction: goto
 Current instruction: label
 Current instruction: call
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@27973e9b writes to A
+Checking if t equals A false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to 0
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to n
+Checking if t equals n false
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to r
-Checking if r2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to r
-Checking if t3 equals r false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to r
-Checking if r2 equals r false
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to r
-Checking if t2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to r
-Checking if t2 equals r false
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to r
-Checking if t3 equals r false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to r
-Checking if t3 equals r false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to r
-Checking if t3 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to A
+Checking if t equals A false
+Checking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to 0
+Checking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to n
+Checking if t equals n false
+    Checking instruction: add    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4fca772d writes to A
+Checking if t equals A false
+Checking if array_load with list[Lir.operand.IROperand;@4fca772d writes to 0
+Checking if array_load with list[Lir.operand.IROperand;@4fca772d writes to n
+Checking if t equals n false
     Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: label
+Current instruction: brgt
+    2nd and 3rd onwards
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@27973e9b writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to n
+Checking if t equals n false
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to i
+Checking if t equals i false
+Checking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to n
+Checking if t equals n false
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4fca772d writes to i
+Checking if t equals i false
+Checking if array_load with list[Lir.operand.IROperand;@4fca772d writes to n
+Checking if t equals n false
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
     Checking instruction: label    This instruction already marked
 Current instruction: call
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 10
+    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@27973e9b writes to t
+Checking if t equals t true
+    This instruction was marked witht
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to 10
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to 10
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to 10
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to 10
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to 10
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to 10
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to 10
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to 10
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 10
-    Checking instruction: breq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_storeChecking if array_store with list[Lir.operand.IROperand;@27bc2616 writes to t
+Checking if t equals t true
+    This instruction was marked witht
+    Checking instruction: add    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_loadChecking if array_load with list[Lir.operand.IROperand;@4fca772d writes to t
+Checking if t equals t true
+    This instruction was marked witht
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: call
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: goto
 Current instruction: label
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to 0.
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to 0.
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to 0.
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to 0.
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to 0.
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to 0.
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to 0.
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to 0.
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t2
-Checking if c equals t2 false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to t2
-Checking if r2 equals t2 false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to t2
-Checking if r2 equals t2 false
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@87aac27 writes to t2
-Checking if t2 equals t2 true
-    This instruction was marked witht2
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: subChecking if sub with list[Lir.operand.IROperand;@6ce253f1 writes to t2
-Checking if t2 equals t2 true
-    This instruction was marked witht2
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t2
-Checking if c equals t2 false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t2
-Checking if c equals t2 false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to t2
-Checking if r2 equals t2 false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to t2
-Checking if r2 equals t2 false
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to t2
-Checking if t3 equals t2 false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t2
-Checking if c equals t2 false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.000001
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to 0.000001
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to 0.000001
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to 0.000001
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to 0.000001
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to 0.000001
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to 0.000001
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.000001
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to x
-Checking if c equals x false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to x
-Checking if r2 equals x false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to x
-Checking if t3 equals x false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to x
-Checking if r2 equals x false
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to x
-Checking if t3 equals x false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to x
-Checking if t3 equals x false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to x
-Checking if t3 equals x false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to x
-Checking if c equals x false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to r
-Checking if r2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to r
-Checking if t3 equals r false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to r
-Checking if r2 equals r false
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to r
-Checking if t3 equals r false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to r
-Checking if t3 equals r false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to r
-Checking if t3 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to r
-Checking if r2 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to r
-Checking if t3 equals r false
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to r
-Checking if r2 equals r false
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to r
-Checking if t3 equals r false
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to r
-Checking if t3 equals r false
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to r
-Checking if t3 equals r false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: assign
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t3
-Checking if c equals t3 false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to t3
-Checking if r2 equals t3 false
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1218025c writes to t3
-Checking if t3 equals t3 true
-    This instruction was marked witht3
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to t3
-Checking if r2 equals t3 false
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@65ab7765 writes to t3
-Checking if t3 equals t3 true
-    This instruction was marked witht3
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@1b28cdfa writes to t3
-Checking if t3 equals t3 true
-    This instruction was marked witht3
-    Checking instruction: divChecking if div with list[Lir.operand.IROperand;@eed1f14 writes to t3
-Checking if t3 equals t3 true
-    This instruction was marked witht3
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t3
-Checking if c equals t3 false
-    Checking instruction: breq    This instruction already marked
-    Checking instruction: goto    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
+Current instruction: label
 Current instruction: sub
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r2
-Checking if c equals r2 false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to x
-Checking if c equals x false
+    Checking instruction: assign    This instruction already marked
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@1fb3ebeb writes to r2
-Checking if r2 equals r2 true
-    This instruction was marked withr2
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: multChecking if mult with list[Lir.operand.IROperand;@816f27d writes to r2
-Checking if r2 equals r2 true
-    This instruction was marked withr2
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
     Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to r2
-Checking if c equals r2 false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to x
-Checking if c equals x false
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: sub
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t
-Checking if c equals t false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: call    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to t
-Checking if c equals t false
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
     Checking instruction: label    This instruction already marked
 Current instruction: assign
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
+    Checking instruction: assign    This instruction already marked
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
     Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: div
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to x
-Checking if c equals x false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: call    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to x
-Checking if c equals x false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
     Checking instruction: label    This instruction already marked
 Current instruction: add
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t3
-Checking if c equals t3 false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
+    Checking instruction: assign    This instruction already marked
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
     Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t3
-Checking if c equals t3 false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: label    This instruction already marked
-Current instruction: div
-    2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to t3
-Checking if c equals t3 false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 2.
-    Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: call    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to t3
-Checking if c equals t3 false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to 2.
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
     Checking instruction: label    This instruction already marked
 Current instruction: assign
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to 0.
+    Checking instruction: assign    This instruction already marked
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
     Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to 0.
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-Current instruction: mult
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: add
     2nd and 3rd onwards
-    Checking instruction: assignChecking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@5674cd4d writes to r
-Checking if c equals r false
+    Checking instruction: assign    This instruction already marked
     Checking instruction: callr    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brlt    This instruction already marked
-    Checking instruction: label    This instruction already marked
-    Checking instruction: mult    This instruction already marked
-    Checking instruction: sub    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: brgeq    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
     Checking instruction: sub    This instruction already marked
     Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
-    Checking instruction: brleq    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: div    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
     Checking instruction: add    This instruction already marked
-    Checking instruction: div    This instruction already marked
-    Checking instruction: assign    This instruction already marked
-    Checking instruction: addChecking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@4c873330 writes to r
-Checking if c equals r false
-    Checking instruction: breq    This instruction already marked
     Checking instruction: goto    This instruction already marked
     Checking instruction: label    This instruction already marked
     Checking instruction: call    This instruction already marked
-    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
     Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: assign
+    2nd and 3rd onwards
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: sub    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: callr    This instruction already marked
+    Checking instruction: array_store    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: assign    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: brgt    This instruction already marked
+    Checking instruction: array_load    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: call    This instruction already marked
+    Checking instruction: add    This instruction already marked
+    Checking instruction: goto    This instruction already marked
+    Checking instruction: label    This instruction already marked
+    Checking instruction: label    This instruction already marked
+Current instruction: array_store
+    1st and 3rd
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+Current instruction: array_load
+    3rd only
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked
+    This instruction already marked

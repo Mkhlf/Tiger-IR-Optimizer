@@ -1,0 +1,18 @@
+#start_function
+int search(int size,int  n):
+int-list: i, out, v, arr[20]
+float-list:
+    assign, i, -1
+    assign, out, -1
+label_4:
+    brgeq label_out, i, size
+    add, i, i, 1
+    array_load, v, arr, i
+    brneq label_10, v, n
+    assign, out, i
+    goto, label_out
+label_10:
+    goto, label_4
+label_out:
+    return, out
+#end_function

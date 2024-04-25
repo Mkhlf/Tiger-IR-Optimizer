@@ -20,6 +20,13 @@ public class midEnd {
         IRReader irReader = new IRReader();
         IRProgram program = irReader.parseIRFile(args[0]);
 
+        for (IRFunction function : program.functions) {
+            System.err.println("Function: " + function.name);
+            CFG cfg = new CFG(function);
+            cfg.dumpCFG();
+            System.err.println("===========================================");
+        }
+
         Optimizer optimizer = new Optimizer(program);
         optimizer.optimize();
 
