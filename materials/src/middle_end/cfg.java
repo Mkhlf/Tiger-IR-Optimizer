@@ -139,6 +139,7 @@ class CFG {
     List<BasicBlock> basicBlocks;
     Map <Integer, BasicBlock> lineToBlock; //startLine to BasicBlock
     Map <String, BasicBlock> labelToBlock; //label to BasicBlock
+    Map <IRInstruction, BasicBlock> instrToBlock; //instruction to BasicBlock
 
 
      CFG(IRFunction function)
@@ -147,6 +148,7 @@ class CFG {
         this.basicBlocks = new ArrayList<>();
         this.lineToBlock = new HashMap<>();
         this.labelToBlock = new HashMap<>();
+        this.instrToBlock = new HashMap<>();
         buildCFG();
     }
 
@@ -248,6 +250,7 @@ class CFG {
                         if (endLine + 1 < n) {
                             target_brnach = lineToBlock.get(endLine + 1);
                             bb.addSuccessor(target_brnach);
+                            target_brnach.addPredecessor(bb);
                             
                         }
                         break;
@@ -270,12 +273,19 @@ class CFG {
                 }
         }
 
+        //update map for instructions to basic blocks
+        for (BasicBlock bb : basicBlocks){
+            List<IRInstruction> instrList = bb.getInstructions();
+            for (IRInstruction instr: instrList){
+                instrToBlock.put(instr, bb);
+            }
+        }
+
     }
 
     void dumpCFG()
     {
         int cnt = 0;
-
         System.err.println("CFG for function " + function.name);
         for (BasicBlock bb : basicBlocks) {
             System.err.println("Basic Block " + cnt + ": " + bb.getStartLine() + " - " + bb.getEndLine());
@@ -292,3 +302,5 @@ class CFG {
     }
 
 }
+
+
