@@ -24,7 +24,7 @@ class Optimizer {
     }
 
     void optimize() {
-        // ceate cfg for each function
+        // create cfg for each function
         // compute reaching definitions within each function cfg 
         // mark dead code in each function
         // eliminate dead code in each function // all app 
@@ -38,16 +38,8 @@ class Optimizer {
             markDeadCode_cfg(function);
             eliminateDeadCode(function);
         }
-
-        dump_in_out();
-        // eliminateDeadCode();
-
+        // dump_in_out();
     }
-
-    // private void computeReachingDefinitions() {
-    //     // Find all reaching definitions for each variable
-
-    // }
 
     private void computeReachingDefinitions (CFG cfg){
         // initialize the reaching definitions for each block
@@ -55,7 +47,8 @@ class Optimizer {
         Map <BasicBlock, Set<IRInstruction>> gen = new HashMap<>();  // set of definitions(instructions) generated in the block
         Map <BasicBlock, Set<IRInstruction>> kill = new HashMap<>(); // set of definitions that are might be killed by other blocks
         
-        // compute gen and kill sets for each block
+        // compute gen and kill sets for each basic block
+
         for (BasicBlock bb : cfg.basicBlocks){
             Set <IRInstruction> newGen = new HashSet<>();
             Set <IRInstruction> newKill = new HashSet<>();
@@ -81,22 +74,18 @@ class Optimizer {
             // go over the instructions in the genSet, and go over all the instruction in the code 
             // go over the rest of the instructions, and see what could kill any of these instrcutions 
             for (IRInstruction def : newGen){
-                IROperand defOp = def.operands[0]; // left hand side of the definition
-                IROperand defOp2 = null; // left hand side of the definition
+                IROperand defVar = def.operands[0]; // left hand side of the definition
+                IROperand offSet = null; // offset for array store (index)
                 if (def.opCode == OpCode.ARRAY_STORE){
-                    System.err.println(" ============================ Array store ======================= ");
-                    for (IROperand op : def.operands){
-                        System.err.print(op.toString() + ", ");
-                    }
-                    System.err.println("");
-                    defOp = def.operands[1];
-                    defOp2 = def.operands[2];
+                    defVar = def.operands[1];
+                    offSet = def.operands[2];
                 }
                 for (IRInstruction currInstruction : function.getInstructions()){
                     if (bb.getInstructions().contains(currInstruction)){
+                        // skip the instructions if in the same block
                         continue;
                     }
-                    IROperand currOp;
+                    IROperand currVar;
                     switch (currInstruction.opCode){
                         case ASSIGN:
                         case ADD:
@@ -107,16 +96,16 @@ class Optimizer {
                         case OR:
                         case CALLR:
                         case ARRAY_LOAD:
-                            currOp = currInstruction.operands[0];
-                            if (currOp.equals(defOp)){
+                            currVar = currInstruction.operands[0];
+                            if (currVar.equals(defVar)){
                                 newKill.add(currInstruction);
                             }
                             break;
 
                         case ARRAY_STORE:
-                            currOp = currInstruction.operands[1];
-                            IROperand currOp2 = currInstruction.operands[2];
-                            if (currOp.equals(defOp) && currOp2.equals(defOp2)){
+                            currVar = currInstruction.operands[1];
+                            IROperand currOffset = currInstruction.operands[2];
+                            if (currVar.equals(defVar) && (currOffset.equals(offSet) || offSet == null)){
                                 newKill.add(currInstruction);
                             }
                             break;
@@ -146,15 +135,15 @@ class Optimizer {
             changed = false;
             for (BasicBlock bb : cfg.basicBlocks){
                 System.err.println("BB: " + bb.getStartLine());
-                // in = union of all predecessors out
+                // in = union of all predecessors outs
                 Set <IRInstruction> newIn = new HashSet<>();
-                
-            
-                System.err.print("Predecessors:");
+                System.err.println("");
+                System.err.print("      Predecessors:");
                 for (BasicBlock pred : bb.getPredecessors()){
                     System.err.print(pred.getStartLine()+ ", ");
                     newIn.addAll(out.get(pred));
                 }
+                System.err.println("");
                 System.err.println("    New In: ");
                 for (IRInstruction instr : newIn){
                     System.err.print(instr.irLineNumber + ", ");
@@ -184,7 +173,6 @@ class Optimizer {
         // store the in and out sets
         INs.put(cfg, in);
         OUTs.put(cfg, out);
-        
     }
 
     private void markDeadCode_cfg(IRFunction function) {
@@ -201,102 +189,74 @@ class Optimizer {
                 workList.add(instruction);
             }
         }
-        // use the IN and OUT sets to mark the dead code 
-        
-        // while worklist is not empty
-        // get an instruction from the worklist
-        // get the block of the instruction
-        // OUT[currBlock] = the list of def. that are live out of this block, 
-            // for each def. in OUT[currBlock]
-                // if the def. is not marked and the def. is writing to the critical instruction
-                    // mark the def.
-                    // add the def. to the worklist
-        // end while 
-
-
-        // bb 2 gen = {d1}, kill = {}; in = {}, out = {d1}
-            // d1.x = 1
-        // bb 3 gen = {d2, d3}, kill = {d1}; in = {d1}, out = {d2, d3} 
-            // d2. i = 1 + 2 
-            // print x -- critical
-            // d3. x = i + 1 
-            // print x -- critical
-        // 
-        // 
-        // 
-        // 
 
         // while worklist is not empty
         // get an instruction from the worklist
         // get the block of the instruction
-        // loop within the block to find the nearest def. that is live before the critical instruction, 
-            // if found then mark it and add it to the worklist
+        // loop within the block to find the nearest def. that is alive before the critical instruction, 
+            // if found then mark it and add it to the worklist and move to the next critical instruction
+
         // otherwise look into the IN[currentBlock] and mark all the instruction that write to this one. 
         // end while
-        
+        System.err.println("Start of marking - " + function.name);
         while (!workList.isEmpty()){
             IRInstruction critInst = workList.remove(0);
-            BasicBlock currBlock = cfg.instrToBlock.get(critInst);
-            IROperand[] currOp = critInst.operands;
-
+            BasicBlock critBlock = cfg.instrToBlock.get(critInst);
+            IROperand[] critOp = critInst.operands;
+            IRInstruction writingInst = null;
+            Set <IRInstruction> inSet = INs.get(cfg).get(critBlock);
             switch (critInst.opCode){
                 case GOTO:
                 case LABEL:
                     break;
+                // check the 2nd onwards 
                 case ARRAY_LOAD:
-                    System.err.println("Checking Array Load with operands: " + critInst.operands[0].toString() + ", " + critInst.operands[1].toString() + " " + critInst.operands[2].toString());
                 case ASSIGN:
-                case CALL: // the ops could be an array
-                    // check the 2nd onwards 
+                case CALL:
                 case BREQ:
                 case BRNEQ:
                 case BRLT:
                 case BRGT:
                 case BRLEQ:
                 case BRGEQ:
-                    // find the instruction that uses the 2nd onwards 
                 case ADD:
                 case SUB:
                 case MULT:
                 case DIV:
                 case AND:
                 case OR:
-                
-                    // check the 2nd and 3rd op
-                    System.err.println("    2nd and 3rd onwards");
-                    
-                    for (int i = 1; i < currOp.length; i++) {
-                        IRInstruction writingInst = null;
+                    for (int i = 1; i < critOp.length; i++) {
+                        writingInst = null;
                         // 1. check within the same block upto this instruction
-                        for (IRInstruction currInstruction : currBlock.getInstructions()){
+                        for (IRInstruction currInstruction : critBlock.getInstructions()){
                             if (currInstruction.equals(critInst)){
                                 break;
                             }
-
-                            if (markedInstructions.contains(currInstruction)){
-                                continue;
-                            }
-                            
-                            if (isWriting(currInstruction, currOp[i])){
+                            if (isWriting(currInstruction, critOp[i])){
                                 writingInst = currInstruction;
                             }
                         }
                         if (writingInst != null){
-                            markedInstructions.add(writingInst);
-                            workList.add(writingInst);
+                            if (!markedInstructions.contains(writingInst)){
+                                markedInstructions.add(writingInst);
+                                workList.add(writingInst);
+                                System.err.println(critInst + " Marking instruction - BB: " + writingInst);
+                            } else {
+                                System.err.println(critInst + " Found instruction - BB: " + writingInst);
+                            }
                             continue;
                         }
                         // 2. check within the IN set of the block
-                        Set <IRInstruction> inSet = INs.get(cfg).get(currBlock);
                         for (IRInstruction instr : inSet){
                             
                             if (markedInstructions.contains(instr)){
                                 continue;
                             }
                             
-                            if (isWriting(instr, currOp[i])){
+                            if (isWriting(instr, critOp[i])){
                                 markedInstructions.add(instr);
                                 workList.add(instr);
+                                System.err.println(critInst + " Marking instruction - IN: " + instr);
                             }
                         }
                     }
@@ -305,118 +265,111 @@ class Optimizer {
                 case RETURN:
                     // check the first op 
                     System.err.println("    1st only");
-                    for (int i = 0; i < currOp.length; i++) {
-                        IRInstruction writingInst = null;
+                    writingInst = null;
                     // 1. check within the same block upto this instruction
-                        for (IRInstruction currInstruction : currBlock.getInstructions()){
-                            if (currInstruction.equals(critInst)){
-                                break;
-                            }
-
-                            if (markedInstructions.contains(currInstruction)){
-                                continue;
-                            }
-
-                            if (isWriting(currInstruction, currOp[i])){
-                                writingInst = currInstruction;
-                            }
+                    for (IRInstruction currInstruction : critBlock.getInstructions()){
+                        if (currInstruction.equals(critInst)){
+                            break;
                         }
-                        if (writingInst != null){
+                        if (isWriting(currInstruction, critOp[0])){
+                            writingInst = currInstruction;
+                        }
+                    }
+                    if (writingInst != null){
+                        if (!markedInstructions.contains(writingInst)){
                             markedInstructions.add(writingInst);
                             workList.add(writingInst);
+                            System.err.println(critInst + " Marking instruction - BB: " + writingInst);
+                        } else {
+                            System.err.println(critInst + " Found instruction - BB: " + writingInst);
+                        }
+                    }
+                    // 2. check within the IN set of the block
+                    for (IRInstruction instr : inSet){
+                        if (markedInstructions.contains(instr)){
                             continue;
                         }
-                    // 2. check within the IN set of the block
-                        Set <IRInstruction> inSet = INs.get(cfg).get(currBlock);
-                        for (IRInstruction instr : inSet){
-
-                            if (markedInstructions.contains(instr)){
-                                continue;
-                            }
-
-                            if (isWriting(instr, currOp[i])){
-                                markedInstructions.add(instr);
-                                workList.add(instr);
-                            }
+                        if (isWriting(instr, critOp[0])){
+                            markedInstructions.add(instr);
+                            workList.add(instr);
+                            System.err.println(critInst + " Marking instruction - IN: " + instr);
                         }
                     }
                     break;
 
-                
-                    // check the 3rd onwards
-                
-                    // check 2nd and 3rd op
-                    // System.err.println("Checking Array Load with operands: " + critInst.operands[0].toString() + ", " + critInst.operands[1].toString() + " " + critInst.operands[2].toString());
                 case CALLR:
                     // System.err.println("Checking Array Load ");
-                    // check the 3rd op
-                    System.err.println("    3rd only");
-                    for (int i = 2; i < currOp.length; i++) {
-                        IRInstruction writingInst = null;
+                    // check the 3rd op onwards
+                    System.err.println("    3rd onwards");
+                    for (int i = 2; i < critOp.length; i++) {
+                        writingInst = null;
                     // 1. check within the same block upto this instruction
-                        for (IRInstruction currInstruction : currBlock.getInstructions()){
+                        for (IRInstruction currInstruction : critBlock.getInstructions()){
                             if (currInstruction.equals(critInst)){
                                 break;
                             }
-
-                            if (markedInstructions.contains(currInstruction)){
-                                continue;
-                            }
-                            if (isWriting(currInstruction, currOp[i])){
+                            if (isWriting(currInstruction, critOp[i])){
                                 writingInst = currInstruction;
                             }
                         }
                         if (writingInst != null){
-                            markedInstructions.add(writingInst);
-                            workList.add(writingInst);
-                            continue;
+                            if (!markedInstructions.contains(writingInst)){
+                                markedInstructions.add(writingInst);
+                                workList.add(writingInst);
+                                System.err.println(critInst + " Marking instruction - BB: " + writingInst);
+                            } else {
+                                System.err.println(critInst + " Found instruction - BB: " + writingInst);
+                            }
                         }
                     // 2. check within the IN set of the block
-                        Set <IRInstruction> inSet = INs.get(cfg).get(currBlock);
                         for (IRInstruction instr : inSet){
                             if (markedInstructions.contains(instr)){
                                 continue;
                             }
-                            if (isWriting(instr, currOp[i])){
+                            if (isWriting(instr, critOp[i])){
                                 markedInstructions.add(instr);
                                 workList.add(instr);
+                                System.err.println(critInst + " Marking instruction - IN: " + instr);
                             }
                         }
                     }
                     break;
                 case ARRAY_STORE:
-                    System.err.println();
-                    System.err.println("Checking array store with oprands: " + critInst.operands[0].toString() + ", " + critInst.operands[1].toString() + " " + critInst.operands[2].toString());
-                    System.err.println();
+                    // System.err.println();
+                    // System.err.println("Checking array store with oprands: " + critInst.operands[0].toString() + ", " + critInst.operands[1].toString() + " " + critInst.operands[2].toString());
+                    // System.err.println();
                     // check the 1st and 3rd op
-                    for (int i = 0; i ==0 || i == 2; i+=2) {
-                        IRInstruction writingInst = null;
+                    for (int i = 0; i ==0  || i == 2; i+=2) {
+                        System.err.println(" oprand: " + critOp[i]);
+                        writingInst = null;
                     // 1. check within the same block upto this instruction
-                        for (IRInstruction currInstruction : currBlock.getInstructions()){
+                        for (IRInstruction currInstruction : critBlock.getInstructions()){
                             if (currInstruction.equals(critInst)){
                                 break;
                             }
-                            if (markedInstructions.contains(currInstruction)){
-                                continue;
-                            }
-                            if (isWriting(currInstruction, currOp[i])){
+                            if (isWriting(currInstruction, critOp[i])){
                                 writingInst = currInstruction;
                             }
                         }
                         if (writingInst != null){
-                            markedInstructions.add(writingInst);
-                            workList.add(writingInst);
+                            if (!markedInstructions.contains(writingInst)){
+                                markedInstructions.add(writingInst);
+                                workList.add(writingInst);
+                                System.err.println(critInst + " Marking instruction - BB: " + writingInst);
+                            } else {
+                                System.err.println(critInst + " Found instruction - BB: " + writingInst);
+                            }
                             continue;
                         }
                     // 2. check within the IN set of the block
-                        Set <IRInstruction> inSet = INs.get(cfg).get(currBlock);
                         for (IRInstruction instr : inSet){
                             if (markedInstructions.contains(instr)){
                                 continue;
                             }
-                            if (isWriting(instr, currOp[i])){
+                            if (isWriting(instr, critOp[i])){
                                 markedInstructions.add(instr);
                                 workList.add(instr);
+                                System.err.println(critInst + " Marking instruction - IN: " + instr);
                             }
                         }
                     }
@@ -427,6 +380,7 @@ class Optimizer {
                     // do nothing, error
             }
         }
+        System.err.println("End of marking");
     }
 
 
@@ -590,7 +544,7 @@ class Optimizer {
     }
 
     private boolean isWriting (IRInstruction instruction, IROperand operand) {
-        System.err.println("Checking if " + instruction.opCode + " with list" + instruction.operands + " writes to " + operand);
+        // System.err.println("Checking if " + instruction.opCode + " with list" + instruction.operands + " writes to " + operand);
         if (!(operand instanceof IRVariableOperand)) {
             // System.err.println("Operand is not a variable!!!");
             return false;
@@ -608,7 +562,7 @@ class Optimizer {
             case ARRAY_LOAD:
             case ASSIGN:
                 boolean result = operand.toString() == instruction.operands[0].toString();
-                System.err.println("Checking if " + instruction.operands[0] + " equals " + operand + " " + result);
+                // System.err.println("Checking if " + instruction.operands[0] + " equals " + operand + " " + result);
                 return result;  
             default:
                 return false;

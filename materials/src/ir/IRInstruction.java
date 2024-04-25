@@ -46,4 +46,16 @@ public class IRInstruction {
         return inst.irLineNumber == irLineNumber && inst.opCode.toString() == opCode.toString();
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(opCode);
+        sb.append(" with operands:");
+        for (IROperand operand : operands) {
+            sb.append(" ");
+            sb.append(operand);
+        }
+        return sb.toString();
+    }
+
 }
