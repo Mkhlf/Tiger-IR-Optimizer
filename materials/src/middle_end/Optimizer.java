@@ -1,6 +1,7 @@
 package middle_end;
 
 import ir.*;
+import ir.IRInstruction.OpCode;
 import ir.datatype.*;
 import ir.operand.*;
 
@@ -9,19 +10,25 @@ import java.util.*;
 // Optimizer class
 class Optimizer {
     private IRProgram program;
-    // private Map<String, Set<ReachingDefinition>> reachingDefinitions;
     private Set<IRInstruction> markedInstructions;
 
     Optimizer(IRProgram program) {
         this.program = program;
-        // this.reachingDefinitions = new HashMap<>();
         this.markedInstructions = new HashSet<>();
     }
 
     void optimize() {
-        // create flow graphs... 
-        // computeReachingDefinitions();
-        markDeadCode();
+        // ceate cfg for each function
+        // compute reaching definitions within each function cfg 
+        // mark dead code in each function
+        // eliminate dead code in each function // all app 
+        for (IRFunction function : program.functions) {
+            CFG cfg = new CFG(function);
+            computeReachingDefinitions(cfg);
+            markDeadCode();
+            // eliminateDeadCode();
+        }
+        markDeadCode_linear();
         eliminateDeadCode();
     }
 
@@ -30,7 +37,130 @@ class Optimizer {
 
     // }
 
+    private void computeReachingDefinitions (CFG cfg){
+        // initialize the reaching definitions for each block
+        IRFunction function = cfg.function;
+        Map <BasicBlock, Set<IRInstruction>> gen = new HashMap<>();  // set of definitions(instructions) generated in the block
+        Map <BasicBlock, Set<IRInstruction>> kill = new HashMap<>(); // set of definitions that are might be killed by other blocks
+        
+        // compute gen and kill sets for each block
+        for (BasicBlock bb : cfg.basicBlocks){
+            Set <IRInstruction> newGen = new HashSet<>();
+            Set <IRInstruction> newKill = new HashSet<>();
+            for (IRInstruction inst : bb.getInstructions()){
+                switch (inst.opCode){
+                    case ASSIGN:
+                    case ADD:
+                    case SUB:
+                    case MULT:
+                    case DIV:
+                    case AND:
+                    case OR:
+                    case CALLR:
+                    case ARRAY_LOAD:
+                    case ARRAY_STORE:
+                    // a gen instruction 
+                        newGen.add(inst);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            // go over the instructions in the genSet, and go over all the instruction in the code 
+            // go over the rest of the instructions, and see what could kill any of these instrcutions 
+            for (IRInstruction def : newGen){
+                IROperand defOp = def.operands[0]; // left hand side of the definition
+                if (def.opCode == OpCode.ARRAY_STORE){
+                    defOp = def.operands[1];
+                }
+                for (IRInstruction currInstruction : function.getInstructions()){
+                    if (bb.getInstructions().contains(currInstruction)){
+                        continue;
+                    }
+                    IROperand currOp;
+                    switch (currInstruction.opCode){
+                        case ASSIGN:
+                        case ADD:
+                        case SUB:
+                        case MULT:
+                        case DIV:
+                        case AND:
+                        case OR:
+                        case CALLR:
+                        case ARRAY_LOAD:
+                            currOp = currInstruction.operands[0];
+                            if (currOp.equals(defOp)){
+                                newKill.add(currInstruction);
+                            }
+                            break;
+
+                        case ARRAY_STORE:
+                            currOp = currInstruction.operands[1];
+                            if (currOp.equals(defOp)){
+                                newKill.add(currInstruction);
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            gen.put(bb, newGen);
+            kill.put(bb, newKill);
+        }
+
+        // initialize the in and out sets for each block
+        Map <BasicBlock, Set<IRInstruction>> in = new HashMap<>();
+        Map <BasicBlock, Set<IRInstruction>> out = new HashMap<>();
+        for (BasicBlock bb : cfg.basicBlocks){
+            in.put(bb, new HashSet<>()); // empty set
+            out.put(bb, gen.get(bb)); // gen[bb]
+        }
+
+        // iterate over the blocks and compute the in and out sets until they converge
+        
+        // out = gen U (in - kill)
+        boolean changed = true;
+        while (changed){
+            changed = false;
+            for (BasicBlock bb : cfg.basicBlocks){
+                // in = union of all predecessors out
+                Set <IRInstruction> newIn = new HashSet<>();
+            
+                for (BasicBlock pred : bb.getPredecessors()){
+                    newIn.addAll(out.get(pred));
+                }
+                in.put(bb, newIn);
+                // if (!newIn.equals(in.get(bb))){
+                //     changed = true;
+                //     in.put(bb, newIn); // update the in set
+                // }
+                
+                // out = gen U (in - kill)
+                Set <IRInstruction> newOut = new HashSet<>();
+                newOut.addAll(gen.get(bb));
+                for (IRInstruction inst : in.get(bb)){
+                    if (!kill.get(bb).contains(inst)){
+                        newOut.add(inst);
+                    }
+                }
+                if (!newOut.equals(out.get(bb))){
+                    changed = true;
+                    out.put(bb, newOut);
+                }
+            }
+        }
+
+        // if the instruction is not in the out set, mark it as dead
+
+        
+    }
+
     private void markDeadCode() {
+        // 
+    }
+
+    private void markDeadCode_linear() {
         // clear the marked instructions
         markedInstructions.clear();
         // find critical instructions and mark them

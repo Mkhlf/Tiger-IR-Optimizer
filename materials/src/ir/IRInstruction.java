@@ -34,4 +34,16 @@ public class IRInstruction {
         this.irLineNumber = irLineNumber;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof IRInstruction)) {
+            return false;
+        }
+        IRInstruction inst = (IRInstruction) obj;
+        return inst.irLineNumber == irLineNumber && inst.opCode.toString() == opCode.toString();
+    }
+
 }
