@@ -1,455 +1,603 @@
+Function: quicksort
++=======================+
+0, 3, 8, 9, 14, 19, 20, 23, 28, 
++=======================+
+CFG for function quicksort
+Basic Block 0: 0 - 2
+    Successors: 
+        28 - 28
+        3 - 7
+    Predecessors: 
+Basic Block 1: 3 - 7
+    Successors: 
+        8 - 8
+    Predecessors: 
+        0 - 2
+Basic Block 2: 8 - 8
+    Successors: 
+        9 - 13
+    Predecessors: 
+        3 - 7
+        20 - 22
+Basic Block 3: 9 - 13
+    Successors: 
+        9 - 13
+        14 - 18
+    Predecessors: 
+        8 - 8
+        9 - 13
+Basic Block 4: 14 - 18
+    Successors: 
+        14 - 18
+        19 - 19
+    Predecessors: 
+        9 - 13
+        14 - 18
+Basic Block 5: 19 - 19
+    Successors: 
+        23 - 27
+        20 - 22
+    Predecessors: 
+        14 - 18
+Basic Block 6: 20 - 22
+    Successors: 
+        8 - 8
+    Predecessors: 
+        19 - 19
+Basic Block 7: 23 - 27
+    Successors: 
+        28 - 28
+    Predecessors: 
+        19 - 19
+Basic Block 8: 28 - 28
+    Successors: 
+    Predecessors: 
+        0 - 2
+        23 - 27
+===========================================
 Function: main
 +=======================+
-0, 9, 14, 16, 18, 25, 26, 29, 
+0, 3, 5, 7, 11, 14, 16, 21, 22, 
 +=======================+
 CFG for function main
-Basic Block 0: 0 - 8
+Basic Block 0: 0 - 2
     Successors: 
-        29 - 29
-        9 - 13
+        22 - 22
+        3 - 4
     Predecessors: 
-Basic Block 1: 9 - 13
+Basic Block 1: 3 - 4
     Successors: 
-        16 - 17
+        5 - 6
+    Predecessors: 
+        0 - 2
+Basic Block 2: 5 - 6
+    Successors: 
+        11 - 13
+        7 - 10
+    Predecessors: 
+        3 - 4
+        7 - 10
+Basic Block 3: 7 - 10
+    Successors: 
+        5 - 6
+    Predecessors: 
+        5 - 6
+Basic Block 4: 11 - 13
+    Successors: 
         14 - 15
     Predecessors: 
-        0 - 8
-        25 - 25
-Basic Block 2: 14 - 15
+        5 - 6
+Basic Block 5: 14 - 15
     Successors: 
-        16 - 17
+        21 - 21
+        16 - 20
     Predecessors: 
-        9 - 13
-Basic Block 3: 16 - 17
+        11 - 13
+        16 - 20
+Basic Block 6: 16 - 20
     Successors: 
-        26 - 28
-        18 - 24
-    Predecessors: 
-        9 - 13
         14 - 15
-Basic Block 4: 18 - 24
-    Successors: 
-        26 - 28
-        25 - 25
     Predecessors: 
-        16 - 17
-Basic Block 5: 25 - 25
+        14 - 15
+Basic Block 7: 21 - 21
     Successors: 
-        9 - 13
+        22 - 22
     Predecessors: 
-        18 - 24
-Basic Block 6: 26 - 28
-    Successors: 
-        29 - 29
-    Predecessors: 
-        16 - 17
-        18 - 24
-Basic Block 7: 29 - 29
+        14 - 15
+Basic Block 8: 22 - 22
     Successors: 
     Predecessors: 
-        0 - 8
-        26 - 28
+        0 - 2
+        21 - 21
 ===========================================
 +=======================+
-0, 9, 14, 16, 18, 25, 26, 29, 
+0, 3, 8, 9, 14, 19, 20, 23, 28, 
 +=======================+
+ ============================ Array store ======================= 
+ti, A, j, 
+ ============================ Array store ======================= 
+tj, A, i, 
 =============Computing IN and OUT sets============
 BB: 0
 Predecessors:    New In: 
 
+BB: 3
+Predecessors:0,     New In: 
+6, 5, 
+BB: 8
+Predecessors:3, 20,     New In: 
+8, 10, 25, 11, 26, 12, 9, 
 BB: 9
-Predecessors:0, 25,     New In: 
-7, 8, 5, 6, 12, 9, 10, 11, 
+Predecessors:8, 9,     New In: 
+16, 8, 10, 25, 15, 11, 17, 26, 12, 9, 
 BB: 14
-Predecessors:9,     New In: 
-7, 8, 16, 5, 6, 12, 17, 9, 15, 
-BB: 16
 Predecessors:9, 14,     New In: 
-7, 8, 20, 16, 5, 6, 12, 17, 9, 19, 15, 
-BB: 18
-Predecessors:16,     New In: 
-7, 8, 20, 16, 5, 6, 12, 17, 9, 19, 15, 
-BB: 25
-Predecessors:18,     New In: 
-7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 26
-Predecessors:16, 18,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 29
-Predecessors:0, 26,     New In: 
-7, 5, 28, 6, 12, 23, 26, 11, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+16, 8, 10, 25, 15, 22, 17, 20, 21, 26, 12, 9, 
+BB: 19
+Predecessors:14,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 20
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 23
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 28
+Predecessors:0, 23,     New In: 
+29, 31, 25, 22, 6, 17, 26, 5, 9, 8, 10, 15, 21, 
 BB: 0
 Predecessors:    New In: 
 
+BB: 3
+Predecessors:0,     New In: 
+6, 5, 
+BB: 8
+Predecessors:3, 20,     New In: 
+8, 10, 25, 22, 15, 11, 17, 20, 21, 26, 12, 9, 
 BB: 9
-Predecessors:0, 25,     New In: 
-7, 5, 28, 6, 12, 23, 26, 11, 25, 15, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+Predecessors:8, 9,     New In: 
+16, 25, 22, 17, 20, 26, 9, 8, 10, 15, 11, 21, 12, 
 BB: 14
-Predecessors:9,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 16, 17, 24, 27, 9, 
-BB: 16
 Predecessors:9, 14,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 18
-Predecessors:16,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 25
-Predecessors:18,     New In: 
-7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 26
-Predecessors:16, 18,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 29
-Predecessors:0, 26,     New In: 
-7, 5, 28, 6, 12, 23, 26, 11, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+16, 25, 8, 10, 15, 22, 17, 20, 21, 26, 12, 9, 
+BB: 19
+Predecessors:14,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 20
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 23
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 28
+Predecessors:0, 23,     New In: 
+29, 31, 25, 22, 6, 17, 26, 5, 9, 8, 10, 15, 21, 
 BB: 0
 Predecessors:    New In: 
 
+BB: 3
+Predecessors:0,     New In: 
+6, 5, 
+BB: 8
+Predecessors:3, 20,     New In: 
+8, 10, 25, 22, 15, 11, 17, 20, 21, 26, 12, 9, 
 BB: 9
-Predecessors:0, 25,     New In: 
-7, 5, 28, 6, 12, 23, 26, 11, 25, 15, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+Predecessors:8, 9,     New In: 
+16, 25, 22, 17, 20, 26, 9, 8, 10, 15, 11, 21, 12, 
 BB: 14
-Predecessors:9,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 16, 17, 24, 27, 9, 
-BB: 16
 Predecessors:9, 14,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 18
-Predecessors:16,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 25
-Predecessors:18,     New In: 
-7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 26
-Predecessors:16, 18,     New In: 
-7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 29
-Predecessors:0, 26,     New In: 
-7, 5, 28, 6, 12, 23, 26, 11, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+16, 25, 8, 10, 15, 22, 17, 20, 21, 26, 12, 9, 
+BB: 19
+Predecessors:14,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 20
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 23
+Predecessors:19,     New In: 
+8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 28
+Predecessors:0, 23,     New In: 
+29, 31, 25, 22, 6, 17, 26, 5, 9, 8, 10, 15, 21, 
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to lo
+Checking if i equals lo false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to lo
+Checking if j equals lo false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to hi
+Checking if i equals hi false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to hi
+Checking if j equals hi false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@312b1dae writes to ti
+Checking if i equals ti false
+Checking if array_load with list[Lir.operand.IROperand;@7530d0a writes to ti
+Checking if x equals ti false
+Checking if assign with list[Lir.operand.IROperand;@27bc2616 writes to ti
+Checking if ti equals ti true
+Checking if add with list[Lir.operand.IROperand;@312b1dae writes to pivot
+Checking if i equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7530d0a writes to pivot
+Checking if x equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7530d0a writes to pivot
+Checking if x equals pivot false
+Checking if array_store with list[Lir.operand.IROperand;@3941a79c writes to pivot
+Checking if assign with list[Lir.operand.IROperand;@506e1b77 writes to pivot
+Checking if tj equals pivot false
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to pivot
+Checking if j equals pivot false
+Checking if array_store with list[Lir.operand.IROperand;@9807454 writes to pivot
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to pivot
+Checking if mid equals pivot false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to pivot
+Checking if mid equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@133314b writes to pivot
+Checking if pivot equals pivot true
+Checking if add with list[Lir.operand.IROperand;@312b1dae writes to pivot
+Checking if i equals pivot false
+Checking if sub with list[Lir.operand.IROperand;@b1bc7ed writes to pivot
+Checking if i equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to pivot
+Checking if x equals pivot false
+Checking if add with list[Lir.operand.IROperand;@30dae81 writes to pivot
+Checking if j equals pivot false
+    2nd and 3rd onwards
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to tj
+Checking if j equals tj false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to tj
+Checking if x equals tj false
+Checking if assign with list[Lir.operand.IROperand;@506e1b77 writes to tj
+Checking if tj equals tj true
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to pivot
+Checking if j equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to pivot
+Checking if x equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7530d0a writes to pivot
+Checking if x equals pivot false
+Checking if array_store with list[Lir.operand.IROperand;@3941a79c writes to pivot
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to pivot
+Checking if mid equals pivot false
+Checking if add with list[Lir.operand.IROperand;@312b1dae writes to pivot
+Checking if i equals pivot false
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to pivot
+Checking if j equals pivot false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to pivot
+Checking if x equals pivot false
+Checking if array_store with list[Lir.operand.IROperand;@9807454 writes to pivot
+Checking if add with list[Lir.operand.IROperand;@30dae81 writes to pivot
+Checking if j equals pivot false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to pivot
+Checking if mid equals pivot false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to i
+Checking if mid equals i false
+Checking if array_store with list[Lir.operand.IROperand;@3941a79c writes to i
+Checking if add with list[Lir.operand.IROperand;@312b1dae writes to i
+Checking if i equals i true
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to i
+Checking if j equals i false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to i
+Checking if x equals i false
+Checking if array_store with list[Lir.operand.IROperand;@9807454 writes to i
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to i
+Checking if mid equals i false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to j
+Checking if mid equals j false
+Checking if array_store with list[Lir.operand.IROperand;@3941a79c writes to j
+Checking if sub with list[Lir.operand.IROperand;@4fca772d writes to j
+Checking if j equals j true
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to j
+Checking if x equals j false
+Checking if array_store with list[Lir.operand.IROperand;@9807454 writes to j
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to j
+Checking if mid equals j false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to A
+Checking if j1 equals A false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to A
+Checking if mid equals A false
+Checking if array_store with list[Lir.operand.IROperand;@3941a79c writes to A
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to A
+Checking if x equals A false
+Checking if array_store with list[Lir.operand.IROperand;@9807454 writes to A
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to A
+Checking if mid equals A false
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to lo
+Checking if j1 equals lo false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to lo
+Checking if mid equals lo false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to lo
+Checking if x equals lo false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to lo
+Checking if mid equals lo false
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to j
+Checking if mid equals j false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to j
+Checking if x equals j false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to j
+Checking if mid equals j false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to A
+Checking if j1 equals A false
+Checking if add with list[Lir.operand.IROperand;@4edde6e5 writes to A
+Checking if j equals A false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to A
+Checking if mid equals A false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to A
+Checking if x equals A false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to A
+Checking if mid equals A false
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@4edde6e5 writes to j
+Checking if j equals j true
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to hi
+Checking if j1 equals hi false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to hi
+Checking if mid equals hi false
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to hi
+Checking if x equals hi false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to hi
+Checking if mid equals hi false
+    2nd and 3rd onwards
+Checking if array_load with list[Lir.operand.IROperand;@7530d0a writes to x
+Checking if x equals x true
+Checking Array Load with operands: pivot, A mid
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to A
+Checking if mid equals A false
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to A
+Checking if mid equals A false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to A
+Checking if j equals A false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to A
+Checking if i equals A false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to mid
+Checking if mid equals mid true
+Checking if div with list[Lir.operand.IROperand;@3d494fbf writes to mid
+Checking if mid equals mid true
+    2nd and 3rd onwards
+Checking if array_load with list[Lir.operand.IROperand;@7cd84586 writes to x
+Checking if x equals x true
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to i
+Checking if mid equals i false
+Checking if sub with list[Lir.operand.IROperand;@b1bc7ed writes to i
+Checking if i equals i true
+Checking if add with list[Lir.operand.IROperand;@30dae81 writes to i
+Checking if j equals i false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to 1
+Checking if add with list[Lir.operand.IROperand;@30dae81 writes to 1
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to j
+Checking if mid equals j false
+Checking if add with list[Lir.operand.IROperand;@30dae81 writes to j
+Checking if j equals j true
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to 1
+
+Checking array store with oprands: ti, A j
+
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to ti
+Checking if mid equals ti false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to j
+Checking if mid equals j false
+
+Checking array store with oprands: tj, A i
+
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to tj
+Checking if mid equals tj false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to i
+Checking if mid equals i false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to j
+Checking if j1 equals j false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to j
+Checking if mid equals j false
+Checking if add with list[Lir.operand.IROperand;@1b2c6ec2 writes to 1
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to 1
+Checking Array Load with operands: x, A i
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to A
+Checking if mid equals A false
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to i
+Checking if mid equals i false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@1ddc4ec2 writes to mid
+Checking if mid equals mid true
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to 2
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to 2
+Checking Array Load with operands: x, A j
+    2nd and 3rd onwards
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to lo
+Checking if j equals lo false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to lo
+Checking if i equals lo false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to 1
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to 1
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to hi
+Checking if j equals hi false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to hi
+Checking if i equals hi false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to 1
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to 1
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to lo
+Checking if j equals lo false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to lo
+Checking if i equals lo false
+Checking if assign with list[Lir.operand.IROperand;@27973e9b writes to hi
+Checking if j equals hi false
+Checking if assign with list[Lir.operand.IROperand;@b4c966a writes to hi
+Checking if i equals hi false
++=======================+
+0, 3, 5, 7, 11, 14, 16, 21, 22, 
++=======================+
+ ============================ Array store ======================= 
+t, A, i, 
+=============Computing IN and OUT sets============
+BB: 0
+Predecessors:    New In: 
+
+BB: 3
+Predecessors:0,     New In: 
+41, 40, 
+BB: 5
+Predecessors:3, 7,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 7
+Predecessors:5,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 11
+Predecessors:5,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 14
+Predecessors:11, 16,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 16
+Predecessors:14,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 21
+Predecessors:14,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 22
+Predecessors:0, 21,     New In: 
+59, 43, 41, 56, 40, 47, 48, 53, 
+BB: 0
+Predecessors:    New In: 
+
+BB: 3
+Predecessors:0,     New In: 
+41, 40, 
+BB: 5
+Predecessors:3, 7,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 7
+Predecessors:5,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 11
+Predecessors:5,     New In: 
+49, 43, 40, 44, 47, 48, 
+BB: 14
+Predecessors:11, 16,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 16
+Predecessors:14,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 21
+Predecessors:14,     New In: 
+59, 43, 56, 40, 47, 48, 53, 
+BB: 22
+Predecessors:0, 21,     New In: 
+59, 43, 41, 56, 40, 47, 48, 53, 
     3rd only
     2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to x
-Checking if c equals x false
-Checking if assign with list[Lir.operand.IROperand;@568db2f2 writes to x
-Checking if err equals x false
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to x
-Checking if r equals x false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to x
-Checking if pr equals x false
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to x
-Checking if r2 equals x false
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to x
-Checking if t equals x false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to x
-Checking if t3 equals x false
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@568db2f2 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to 0.
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to n
+Checking if t equals n false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 100
     2nd and 3rd onwards
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to t
-Checking if r2 equals t false
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to t
-Checking if t2 equals t false
-Checking if assign with list[Lir.operand.IROperand;@15aeb7ab writes to t
+Checking if add with list[Lir.operand.IROperand;@4783da3f writes to i
+Checking if i equals i true
+Checking if sub with list[Lir.operand.IROperand;@378fd1ac writes to i
+Checking if n equals i false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@49097b5d writes to i
+Checking if i equals i true
+Checking if array_store with list[Lir.operand.IROperand;@6e2c634b writes to i
+Checking if sub with list[Lir.operand.IROperand;@378fd1ac writes to n
+Checking if n equals n true
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to n
+Checking if t equals n false
+Checking if array_store with list[Lir.operand.IROperand;@6e2c634b writes to n
+    3rd only
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to A
+Checking if t equals A false
+Checking if array_store with list[Lir.operand.IROperand;@6e2c634b writes to A
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 0
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to n
+Checking if t equals n false
+    2nd and 3rd onwards
+Checking if add with list[Lir.operand.IROperand;@37a71e93 writes to i
+Checking if i equals i true
+Checking if array_load with list[Lir.operand.IROperand;@7e6cbb7a writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@7c3df479 writes to i
+Checking if i equals i true
+Checking if array_load with list[Lir.operand.IROperand;@7e6cbb7a writes to n
+Checking if t equals n false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to n
+Checking if t equals n false
+    2nd and 3rd onwards
+Checking if array_load with list[Lir.operand.IROperand;@7e6cbb7a writes to t
 Checking if t equals t true
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to 0.
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@568db2f2 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 0.
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@6acbcfc0 writes to 0.
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to 0.
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to 0.
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@5b480cf9 writes to 0.
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to 0.
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@723279cf writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to 0.
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to 0.
     2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@568db2f2 writes to t
-Checking if err equals t false
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to t
-Checking if c equals t false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to t
-Checking if c equals t false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@6acbcfc0 writes to t
-Checking if pr equals t false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to t
-Checking if t3 equals t false
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to t
-Checking if r2 equals t false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@5b480cf9 writes to t
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 10
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to i
+Checking if t equals i false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 1
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 0
+    2nd and 3rd onwards
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to n
+Checking if t equals n false
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to 1
+
+Checking array store with oprands: t, A i
+
+Checking if assign with list[Lir.operand.IROperand;@5e9f23b4 writes to t
 Checking if t equals t true
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to t
-Checking if t2 equals t false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@723279cf writes to t
-Checking if r equals t false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to t
-Checking if pr equals t false
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to t
-Checking if t2 equals t false
-Checking if assign with list[Lir.operand.IROperand;@568db2f2 writes to err
-Checking if err equals err true
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to err
-Checking if c equals err false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to err
-Checking if c equals err false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to err
-Checking if t3 equals err false
-Checking if assign with list[Lir.operand.IROperand;@6acbcfc0 writes to err
-Checking if pr equals err false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to err
-Checking if t3 equals err false
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to err
-Checking if r2 equals err false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to err
-Checking if t3 equals err false
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to err
-Checking if r equals err false
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to err
-Checking if t2 equals err false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to err
-Checking if t3 equals err false
-Checking if assign with list[Lir.operand.IROperand;@723279cf writes to err
-Checking if r equals err false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to err
-Checking if pr equals err false
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to err
-Checking if t2 equals err false
     2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6acbcfc0 writes to pr
-Checking if pr equals pr true
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to pr
-Checking if t3 equals pr false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to pr
-Checking if t3 equals pr false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to pr
-Checking if t3 equals pr false
-Checking if assign with list[Lir.operand.IROperand;@723279cf writes to pr
-Checking if r equals pr false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to pr
-Checking if c equals pr false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to r
-Checking if t3 equals r false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to r
-Checking if t3 equals r false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@723279cf writes to r
-Checking if r equals r true
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
     2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to r
-Checking if t3 equals r false
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to r
-Checking if r2 equals r false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@378bf509 writes to r
-Checking if r equals r true
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to r
-Checking if t2 equals r false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to r
-Checking if t2 equals r false
+Checking Array Load with operands: t, A i
     2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 10
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to 10
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to 10
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to 10
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to 10
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to 10
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to 10
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to 10
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to 10
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to 10
     2nd and 3rd onwards
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to t2
-Checking if r2 equals t2 false
-Checking if sub with list[Lir.operand.IROperand;@4f3f5b24 writes to t2
-Checking if t2 equals t2 true
-    2nd and 3rd onwards
-Checking if sub with list[Lir.operand.IROperand;@10f87f48 writes to t2
-Checking if t2 equals t2 true
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 0.000001
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to r
-Checking if t3 equals r false
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to r
-Checking if r2 equals r false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to r
-Checking if t3 equals r false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
-    2nd and 3rd onwards
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to t3
-Checking if t3 equals t3 true
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to t3
-Checking if t3 equals t3 true
-Checking if div with list[Lir.operand.IROperand;@5f184fc6 writes to t3
-Checking if t3 equals t3 true
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to x
-Checking if c equals x false
-    2nd and 3rd onwards
-Checking if mult with list[Lir.operand.IROperand;@27d6c5e0 writes to r2
-Checking if r2 equals r2 true
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to x
-Checking if c equals x false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to x
-Checking if c equals x false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to x
-Checking if t3 equals x false
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to x
-Checking if t equals x false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to x
-Checking if t3 equals x false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to x
-Checking if t3 equals x false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to x
-Checking if pr equals x false
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to x
-Checking if r2 equals x false
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 0.
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to 0.
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to 0.
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to 0.
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to t
-Checking if c equals t false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to t
-Checking if c equals t false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to t
-Checking if t3 equals t false
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to t
-Checking if t3 equals t false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to t
-Checking if t3 equals t false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to t
-Checking if pr equals t false
-    2nd and 3rd onwards
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to t3
-Checking if t3 equals t3 true
-Checking if add with list[Lir.operand.IROperand;@3feba861 writes to t3
-Checking if t3 equals t3 true
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to 2.
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to 2.
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to 2.
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to 2.
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to 2.
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to 2.
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to r
-Checking if t equals r false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to r
-Checking if r2 equals r false
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@16b98e56 writes to r
-Checking if t equals r false
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
-Checking if assign with list[Lir.operand.IROperand;@2d98a335 writes to r
-Checking if r2 equals r false
-    2nd and 3rd onwards
-Checking if div with list[Lir.operand.IROperand;@6f496d9f writes to t3
-Checking if t3 equals t3 true
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
-    2nd and 3rd onwards
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to x
-Checking if c equals x false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to x
-Checking if c equals x false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to x
-Checking if t3 equals x false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to x
-Checking if pr equals x false
-Checking if assign with list[Lir.operand.IROperand;@6d311334 writes to r
-Checking if c equals r false
-Checking if add with list[Lir.operand.IROperand;@7b23ec81 writes to r
-Checking if c equals r false
-Checking if assign with list[Lir.operand.IROperand;@7ef20235 writes to r
-Checking if t3 equals r false
-Checking if assign with list[Lir.operand.IROperand;@5fd0d5ae writes to r
-Checking if pr equals r false
 Function: main
 IN sets: 
-BB: 18 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 9 || 7, 5, 28, 6, 12, 23, 26, 11, 25, 15, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
-BB: 25 || 7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 16 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 14 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 16, 17, 24, 27, 9, 
+BB: 5 || 49, 43, 40, 44, 47, 48, 
+BB: 21 || 59, 43, 56, 40, 47, 48, 53, 
+BB: 11 || 49, 43, 40, 44, 47, 48, 
+BB: 3 || 41, 40, 
 BB: 0 || 
-BB: 26 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 29 || 7, 5, 28, 6, 12, 23, 26, 11, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+BB: 22 || 59, 43, 41, 56, 40, 47, 48, 53, 
+BB: 14 || 59, 43, 56, 40, 47, 48, 53, 
+BB: 16 || 59, 43, 56, 40, 47, 48, 53, 
+BB: 7 || 49, 43, 40, 44, 47, 48, 
 OUT sets: 
-BB: 18 || 7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 9 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 16, 17, 24, 27, 9, 
-BB: 25 || 7, 28, 6, 23, 26, 25, 15, 20, 16, 17, 24, 27, 19, 
-BB: 16 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 14 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 24, 27, 9, 19, 
-BB: 0 || 7, 8, 5, 6, 12, 9, 10, 11, 
-BB: 26 || 7, 5, 28, 6, 12, 23, 26, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 
-BB: 29 || 7, 5, 28, 6, 12, 23, 26, 11, 15, 25, 8, 20, 16, 17, 24, 27, 9, 19, 10, 
+BB: 5 || 49, 43, 40, 44, 47, 48, 
+BB: 21 || 59, 43, 56, 40, 47, 48, 53, 
+BB: 11 || 43, 40, 47, 48, 53, 
+BB: 3 || 43, 40, 44, 
+BB: 0 || 41, 40, 
+BB: 22 || 59, 43, 41, 56, 40, 47, 48, 53, 
+BB: 14 || 59, 43, 56, 40, 47, 48, 53, 
+BB: 16 || 59, 43, 56, 48, 
+BB: 7 || 49, 43, 47, 48, 
+Function: quicksort
+IN sets: 
+BB: 20 || 8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 8 || 8, 10, 25, 22, 15, 11, 17, 20, 21, 26, 12, 9, 
+BB: 9 || 16, 25, 22, 17, 20, 26, 9, 8, 10, 15, 11, 21, 12, 
+BB: 3 || 6, 5, 
+BB: 0 || 
+BB: 23 || 8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 19 || 8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 14 || 16, 25, 8, 10, 15, 22, 17, 20, 21, 26, 12, 9, 
+BB: 28 || 29, 31, 25, 22, 6, 17, 26, 5, 9, 8, 10, 15, 21, 
+OUT sets: 
+BB: 20 || 25, 8, 10, 22, 15, 17, 20, 21, 26, 9, 
+BB: 8 || 8, 10, 25, 22, 15, 11, 17, 20, 21, 26, 12, 9, 
+BB: 9 || 16, 25, 8, 10, 15, 22, 17, 20, 26, 12, 9, 
+BB: 3 || 8, 10, 11, 12, 9, 
+BB: 0 || 6, 5, 
+BB: 23 || 29, 31, 8, 10, 25, 22, 15, 17, 21, 26, 9, 
+BB: 19 || 8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 14 || 8, 10, 25, 22, 15, 17, 20, 21, 26, 9, 
+BB: 28 || 29, 31, 25, 22, 6, 17, 26, 5, 9, 8, 10, 15, 21, 

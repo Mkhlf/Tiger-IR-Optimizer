@@ -5,7 +5,7 @@
 # an input ir file as 
 # This script should output an optimized ir file named "out.ir"
 
-java -cp ./build middle_end.midEnd ./materials/public_test_cases/sqrt/sqrt.ir > out.ir 2> err.txt
+java -cp ./build middle_end.midEnd ./materials/public_test_cases/quicksort/quickSort.ir > out.ir 2> err.txt
 # java -cp ./build middle_end.midEnd $1 > out.ir 2> err.txt
 
 # java -cp ./build IRInterpreter out.ir 
@@ -18,7 +18,7 @@ java -cp ./build middle_end.midEnd ./materials/public_test_cases/sqrt/sqrt.ir > 
 
 # use a counter 
 counter=0
-for input_file in materials/public_test_cases/sqrt/*.in; do
+for input_file in materials/public_test_cases/quicksort/*.in; do
     echo "Running optimized IR with input: $input_file"
     # output to counter-opt.out
     java -cp ./build IRInterpreter out.ir < $input_file > ${input_file%}-opt.out
