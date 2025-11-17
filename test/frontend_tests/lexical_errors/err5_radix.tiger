@@ -1,0 +1,5 @@
+main let
+    var X: float;
+in begin
+    X := 0x8 / 8,0;
+end

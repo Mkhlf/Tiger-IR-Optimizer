@@ -1,0 +1,5 @@
+main let
+    var X: int;
+in begin
+    X := (99 % 4);
+end

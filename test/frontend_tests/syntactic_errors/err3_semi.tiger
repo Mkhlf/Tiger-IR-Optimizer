@@ -1,0 +1,9 @@
+main let
+    var X : float := 0.0
+    var Y : int
+in begin
+    X := readf()
+    printf(X + 0.001)
+    Y := readi()
+    print(1 - Y + 3 * Y)
+end;

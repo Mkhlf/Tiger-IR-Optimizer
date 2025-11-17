@@ -1,0 +1,6 @@
+main let
+    var X : int := 2;
+    var Y : int := 1;
+in
+    Y := Y + X;
+end

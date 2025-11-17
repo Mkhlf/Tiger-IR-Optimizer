@@ -1,0 +1,9 @@
+main let
+    var X : int;
+in begin
+    X := readi();
+    if (X < 0) 
+        printi(13);  
+    else
+    	printi(14);
+end

@@ -1,0 +1,5 @@
+main let
+    var X: float;
+in begin
+    X := .8 * 8.;
+end

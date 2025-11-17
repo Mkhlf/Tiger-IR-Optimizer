@@ -1,0 +1,26 @@
+main let
+    function fib(n: int): int
+    begin
+        let
+            var t1, t2: int;
+        in
+            if (n <= 1) then
+                return n;
+            else
+                t1 := fib(n - 1);
+                t2 := fib(n - 2);
+                return t1 + t2;
+            endif;
+        end
+    end
+in
+begin
+    let
+        var x: int;
+    in
+        x := readi();
+        x := fib(x);
+        printi(x);
+        printc(10);
+    end
+end

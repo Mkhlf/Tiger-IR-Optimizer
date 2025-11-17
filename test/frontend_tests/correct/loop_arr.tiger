@@ -1,0 +1,35 @@
+main let 
+    var iLoveCompilers : array[16] of int := 0;
+    var X : int;
+in begin
+    iLoveCompilers[0] := 73;  /* I */
+    iLoveCompilers[1] := 32;  /*   */
+    iLoveCompilers[2] := 76;  /* L */
+    iLoveCompilers[3] := 79;  /* O */
+    iLoveCompilers[4] := 86;  /* V */
+    iLoveCompilers[5] := 69;  /* E */
+    iLoveCompilers[6] := 32;  /*   */
+    iLoveCompilers[7] := 67;  /* C */
+    iLoveCompilers[8] := 79;  /* O */
+    iLoveCompilers[9] := 77;  /* M */
+    iLoveCompilers[10] := 80;  /* P */
+    iLoveCompilers[11] := 73;  /* I */
+    iLoveCompilers[12] := 76;  /* L */
+    iLoveCompilers[13] := 69;  /* E */
+    iLoveCompilers[14] := 82;  /* R */
+    iLoveCompilers[15] := 83;  /* S */
+
+    X := readi();
+    if (X < 0) then
+        for X := 0 to 15 do
+            printc(iLoveCompilers[X]);
+        enddo;
+        printc(13);  /* CARRIAGE RETURN */
+    else
+        while (X > 0) do
+            printi(X);
+            printc(13);     /* CARRIAGE RETURN */
+            X := X - 1;
+        enddo;
+    endif;
+end

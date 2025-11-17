@@ -1,0 +1,6 @@
+main let
+    var X: float;
+    var __summer: int;
+in begin
+    __summer := 77;
+end

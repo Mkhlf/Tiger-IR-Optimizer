@@ -1,28 +1,71 @@
 #!/bin/bash
 
-# Write a script to run your optimizer in this file 
-# This script should take one command line argument: an path to 
-# an input ir file as 
-# This script should output an optimized ir file named "out.ir"
+# Tiger Compiler Run Script
 
-java -cp ./build middle_end.midEnd $1 > out.ir 2> err.txt
-# java -cp ./build middle_end.midEnd $1 > out.ir 2> err.txt
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <command> <input_file>"
+    echo ""
+    echo "Commands:"
+    echo "  parse <file.tiger>     - Parse Tiger source code"
+    echo "  optimize <file.ir>     - Optimize IR code"
+    echo "  codegen <file.ir>      - Generate MIPS assembly"
+    echo "  compile <file.tiger>   - Full compilation pipeline"
+    echo ""
+    exit 1
+fi
 
-# java -cp ./build IRInterpreter out.ir 
-# java -cp ./build IRInterpreter ./materials/example/example.ir
+COMMAND=$1
+INPUT_FILE=$2
 
-# path for 1st test case: materials/public_test_cases/quicksort/quickSort.ir
-# input for 1st test case: materials/public_test_cases/quicksort/*.in
-# output for 1st test case: materials/public_test_cases/quicksort/*.out
+# Check if build directory exists
+if [ ! -d "build" ]; then
+    echo "Build directory not found. Running build script..."
+    ./build.sh
+fi
 
-
-# use a counter 
-# counter=0
-# for input_file in materials/public_test_cases/sqrt/*.in; do
-#     echo "Running optimized IR with input: $input_file"
-#     # output to counter-opt.out
-#     java -cp ./build IRInterpreter out.ir < $input_file > ${input_file%}-opt.out
-#     echo "Output generated: ${input_file%.in}.out"
-#     # check the difference between the output and the expected output
-#     diff ${input_file%}-opt.out ${input_file%}.out
-# done
+case $COMMAND in
+    parse)
+        echo "Parsing $INPUT_FILE..."
+        java -cp "antlr-4.12.0-complete.jar:build/frontend" TigerDriver "$INPUT_FILE"
+        ;;
+    
+    optimize)
+        echo "Optimizing $INPUT_FILE..."
+        java -cp build/optimizer Demo "$INPUT_FILE"
+        echo "Output written to out.ir"
+        ;;
+    
+    codegen)
+        echo "Generating MIPS code for $INPUT_FILE..."
+        java -cp build/backend BackEnd "$INPUT_FILE"
+        echo "Output written to out.s"
+        ;;
+    
+    compile)
+        echo "Full compilation of $INPUT_FILE..."
+        
+        # Parse to IR (would need to be implemented to output IR)
+        echo "Step 1: Parsing..."
+        java -cp "antlr-4.12.0-complete.jar:build/frontend" TigerDriver "$INPUT_FILE"
+        
+        # For now, assume the parser outputs to temp.ir
+        # In a real implementation, the parser would generate IR
+        
+        if [ -f "temp.ir" ]; then
+            echo "Step 2: Optimizing..."
+            java -cp build/optimizer Demo temp.ir
+            
+            echo "Step 3: Generating MIPS..."
+            java -cp build/backend BackEnd out.ir
+            
+            echo "Compilation complete! Output in out.s"
+        else
+            echo "Note: Full pipeline requires parser to generate IR (not yet implemented)"
+        fi
+        ;;
+    
+    *)
+        echo "Unknown command: $COMMAND"
+        exit 1
+        ;;
+esac
