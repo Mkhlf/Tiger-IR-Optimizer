@@ -1,0 +1,33 @@
+main let
+    var a: int := 1;
+    var b: int := 2;
+    var c: int := 3;
+    var d: int := 4;
+    var e: int := 5;
+    var f: int := 6;
+    var g: int := 7;
+    var h: int := 8;
+    var result: int;
+in
+begin
+    /* Create register pressure with many live variables */
+    result := a + b;
+    result := result * c;
+    result := result - d;
+    result := result + e;
+    result := result * f;
+    result := result - g;
+    result := result + h;
+    
+    /* More computation to show register allocation */
+    a := b + c;
+    b := c + d;
+    c := d + e;
+    d := e + f;
+    e := f + g;
+    f := g + h;
+    
+    printi(result);
+    printi(a);
+    printi(f);
+end

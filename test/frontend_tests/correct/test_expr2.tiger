@@ -1,0 +1,8 @@
+main let
+    var x: int := 10;
+    var y: int;
+in
+begin
+    y := x * 2 + 5;
+    printi(y);
+end

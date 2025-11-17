@@ -1,0 +1,13 @@
+main let
+    var x: int;
+    var result: int;
+in
+begin
+    x := 15;
+    if x > 10 then
+        result := 100;
+    else
+        result := 200;
+    endif;
+    printi(result);
+end

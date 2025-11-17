@@ -1,0 +1,10 @@
+main let
+    var i: int;
+    var sum: int := 0;
+in
+begin
+    for i := 1 to 10 do
+        sum := sum + i;
+    enddo;
+    printi(sum);
+end

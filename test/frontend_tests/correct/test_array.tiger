@@ -1,0 +1,13 @@
+main let
+    var arr: array[5] of int;
+    var i: int;
+in
+begin
+    for i := 0 to 4 do
+        arr[i] := i * 2;
+    enddo;
+    
+    for i := 0 to 4 do
+        printi(arr[i]);
+    enddo;
+end

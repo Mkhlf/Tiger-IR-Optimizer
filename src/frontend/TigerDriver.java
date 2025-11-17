@@ -1,9 +1,9 @@
-package src;
-
 import antlr_generated.*;
+import ir.*;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
+import java.io.*;
 
 
 public class TigerDriver {
@@ -37,6 +37,25 @@ public class TigerDriver {
 
             if (parser.getNumberOfSyntaxErrors() == 0) {
                 System.out.println("successful");
+                
+                // Generate IR
+                TigerIRGenerator irGen = new TigerIRGenerator();
+                irGen.visit(tree);
+                IRProgram program = irGen.getProgram();
+                
+                String outputFile = "temp.ir";
+                if (args.length > 1) {
+                    outputFile = args[1];
+                }
+                
+                // Write IR to file
+                try (PrintStream ps = new PrintStream(new FileOutputStream(outputFile))) {
+                    IRPrinter printer = new IRPrinter(ps);
+                    printer.printProgram(program);
+                    System.out.println("IR generated to: " + outputFile);
+                } catch (IOException e) {
+                    System.err.println("Error writing IR file: " + e.getMessage());
+                }
             }
 
         } catch (Exception e) {

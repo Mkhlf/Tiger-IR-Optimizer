@@ -1,0 +1,17 @@
+#start_function
+void main():
+int-list: i, sum, t0
+float-list: 
+    assign, sum, 0
+    assign, i, 1
+loop0:
+    brgt, exit1, i, 10
+    add, t0, sum, i
+    assign, sum, t0
+    add, i, i, 1
+    goto, loop0
+exit1:
+    call, puti, sum
+return:
+#end_function
+

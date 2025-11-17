@@ -26,41 +26,44 @@ fi
 case $COMMAND in
     parse)
         echo "Parsing $INPUT_FILE..."
-        java -cp "antlr-4.12.0-complete.jar:build/frontend" TigerDriver "$INPUT_FILE"
+        java -cp "antlr-4.12.0-complete.jar:build/frontend:build/optimizer" TigerDriver "$INPUT_FILE"
         ;;
     
     optimize)
         echo "Optimizing $INPUT_FILE..."
-        java -cp build/optimizer Demo "$INPUT_FILE"
+        java -cp build/optimizer middle_end.midEnd "$INPUT_FILE" > out.ir
         echo "Output written to out.ir"
         ;;
     
     codegen)
         echo "Generating MIPS code for $INPUT_FILE..."
-        java -cp build/backend BackEnd "$INPUT_FILE"
+        # Default to naive unless specified otherwise
+        SELECTOR="--naive"
+        if [ "$#" -ge 3 ] && [ "$3" == "--greedy" ]; then
+            SELECTOR="--greedy"
+        fi
+        java -cp build/backend BackEnd "$INPUT_FILE" "$SELECTOR"
         echo "Output written to out.s"
         ;;
     
     compile)
         echo "Full compilation of $INPUT_FILE..."
         
-        # Parse to IR (would need to be implemented to output IR)
-        echo "Step 1: Parsing..."
-        java -cp "antlr-4.12.0-complete.jar:build/frontend" TigerDriver "$INPUT_FILE"
+        # Parse to IR
+        echo "Step 1: Parsing and generating IR..."
+        java -cp "antlr-4.12.0-complete.jar:build/frontend:build/optimizer" TigerDriver "$INPUT_FILE"
         
-        # For now, assume the parser outputs to temp.ir
-        # In a real implementation, the parser would generate IR
-        
+        # Check if IR was generated
         if [ -f "temp.ir" ]; then
             echo "Step 2: Optimizing..."
-            java -cp build/optimizer Demo temp.ir
+            java -cp build/optimizer middle_end.midEnd temp.ir > out.ir
             
             echo "Step 3: Generating MIPS..."
-            java -cp build/backend BackEnd out.ir
+            java -cp build/backend BackEnd out.ir --naive
             
             echo "Compilation complete! Output in out.s"
         else
-            echo "Note: Full pipeline requires parser to generate IR (not yet implemented)"
+            echo "Error: IR generation failed"
         fi
         ;;
     

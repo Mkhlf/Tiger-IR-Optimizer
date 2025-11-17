@@ -1,0 +1,21 @@
+#start_function
+void main():
+int-list: result, x, t0
+float-list: 
+    assign, x, 15
+    brgt, true0, x, 10
+    assign, t0, 0
+    goto, end1
+true0:
+    assign, t0, 1
+end1:
+    breq, else2, t0, 0
+    assign, result, 100
+    goto, endif3
+else2:
+    assign, result, 200
+endif3:
+    call, puti, result
+return:
+#end_function
+

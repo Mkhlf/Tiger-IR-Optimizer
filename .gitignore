@@ -5,6 +5,7 @@
 build/
 bin/
 out/
+original/
 
 # IDE files
 .idea/
@@ -20,6 +21,9 @@ out/
 *.log
 err.txt
 *.err
+
+# Antlr jar file
+antlr-4.12.0-complete.jar
 
 # Output files
 out.ir

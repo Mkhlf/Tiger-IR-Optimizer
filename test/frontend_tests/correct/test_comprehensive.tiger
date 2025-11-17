@@ -1,0 +1,30 @@
+main let
+    var x: int := 10;
+    var y: int;
+    var arr: array[5] of int;
+in
+begin
+    /* Test assignment and arithmetic */
+    y := x * 2 + 5;
+    
+    /* Test if-else */
+    if y > 20 then
+        x := 100;
+    else
+        x := 200;
+    endif;
+    
+    /* Test while loop */
+    while x > 90 do
+        x := x - 1;
+    enddo;
+    
+    /* Test for loop with array */
+    for y := 0 to 4 do
+        arr[y] := y * y;
+    enddo;
+    
+    /* Test array access and output */
+    printi(x);
+    printi(arr[3]);
+end

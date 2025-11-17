@@ -1,0 +1,46 @@
+#start_function
+void main():
+int-list: arr[5], t4, t5, t6, x, y, t0, t1, t2, t3
+float-list: 
+    assign, x, 10
+    add, t0, 2, 5
+    mult, t1, x, t0
+    assign, y, t1
+    brgt, true0, y, 20
+    assign, t2, 0
+    goto, end1
+true0:
+    assign, t2, 1
+end1:
+    breq, else2, t2, 0
+    assign, x, 100
+    goto, endif3
+else2:
+    assign, x, 200
+endif3:
+loop4:
+    brgt, true6, x, 90
+    assign, t3, 0
+    goto, end7
+true6:
+    assign, t3, 1
+end7:
+    breq, exit5, t3, 0
+    sub, t4, x, 1
+    assign, x, t4
+    goto, loop4
+exit5:
+    assign, y, 0
+loop8:
+    brgt, exit9, y, 4
+    mult, t5, y, y
+    array_store, t5, arr, y
+    add, y, y, 1
+    goto, loop8
+exit9:
+    call, puti, x
+    array_load, t6, arr, 3
+    call, puti, t6
+return:
+#end_function
+
